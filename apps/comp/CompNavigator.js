@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StatusBar, Navigator } from 'react-native';
+import { Text, View, StatusBar, Navigator, Image, TouchableHighlight } from 'react-native';
 
 import Main from './Main';
 import Menu from './Menu';
@@ -11,16 +11,36 @@ import ReceiveHome from './Received/ReceiveHome';
 import SaleHome from './Sales/SaleHome';
 import StockHome from './Stock/StockHome';
 import SupplierHome from './Supplier/SupplierHome';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, TouchableOpacity, Alert } from 'react-navigation';
+import icMenu from '../img/ic_menu.png';
 
-StatusBar.setHidden(true);
+// StatusBar.setHidden(true);
+// const MenuButton = (
+//     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+//       <TouchableOpacity onPress={alert("click")}>
+//         <Image source={icMenu} style={{ width: 25, height: 25 }} />
+//       </TouchableOpacity>
+//       <Text style={{ color: 'black', fontFamily: 'Avenir', fontSize: 20 }}>Dashboard</Text>    
+//     </View>
+// );
 
 export default StackNavigator({
+    // Main: { screen: Main,
+    //     navigationOptions: {
+    //         // title: 'Dashboard',
+    //         // // title: null,
+    //         // // headerLeft: (<Image source={require('../img/ic_menu.png')} onPress={this.openMenu.bind(this)} 
+    //         // // style={{width: 25, height: 25}}/>),
+    //         // headerLeft: <Main />,
+    //         // headerStyle: {backgroundColor: 'red', elevation: null},
+    //     },
+    // },
     Main: { screen: Main,
         navigationOptions: {
-            title: 'Main',
+            header: null,
         },
     },
+
     Menu: { screen: Menu,
         navigationOptions: {
             title: 'Menu',
@@ -32,11 +52,7 @@ export default StackNavigator({
         },
     },
     PContractTab: { screen: PContractTab},
-      //     navigationOptions: {
-      //       title: 'PContractHome',
-      //       headerBackTitle: 'Back',
-      //   },
-      // },
+
     PurchaseHome: { screen: PurchaseHome,
         navigationOptions: {
             title: 'PurchaseHome',
@@ -63,7 +79,7 @@ export default StackNavigator({
             title: 'StockHome',
         },
     },
-  SupplierHome: { screen: SupplierHome,
+    SupplierHome: { screen: SupplierHome,
         navigationOptions: {
             title: 'SupplierHome',
         },

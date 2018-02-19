@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import { View, Text, TouchableOpacity } from 'react-native';
+import ReactNative from 'react-native';
 import Drawer from 'react-native-drawer';
 
 import Menu from './Menu';
