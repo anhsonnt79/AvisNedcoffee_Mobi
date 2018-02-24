@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Dimensions, Image, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, Dimensions, Image, StyleSheet, ScrollView } from 'react-native';
 import icMenu from '../img/ic_menu.png';
-
+import StockHome from './Stock/StockHome';
+import IntakeQuality from './Report/IntakeQuality';
+import { StackNavigator } from 'react-navigation';
 const { height } = Dimensions.get('window');
+// import StockProduct from './Stock/StockProduct';
+// import StockZone from './Stock/StockZone';
 
-export default class Dashboard extends Component {
+export default class Dashboard extends React.Component {
 
   openMenu(){
     const { open } = this.props;
@@ -12,17 +16,29 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const { wrapper, row1, iconStyle, titleStyle } = styles;
+    const { wrapper, row1, iconStyle, titleStyle, scrollContainer, labelComponent, labelTextComponent } = styles;
+    // const { navigate } = this.props.navigation;
     return (
-      <View style={{ flex: 1, backgroundColor: 'yellow' }}>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={wrapper}>
           <View style={row1}>
-            <TouchableOpacity style={{width: 30}} onPress={this.openMenu.bind(this)}>        
+            <TouchableOpacity onPress={this.openMenu.bind(this)}>        
               <Image source={icMenu} style={iconStyle} />
             </TouchableOpacity>
             <Text style={titleStyle}>Dashboard</Text>
+            <Text />
           </View>
         </View>
+        <ScrollView style={scrollContainer} >
+          <View style={labelComponent}>
+            <Text style={labelTextComponent}>STOCK STACK</Text>
+          </View>
+            <StockHome navigation = {this.props.navigation}/>
+          <View style={labelComponent}>
+            <Text style={labelTextComponent}>INTAKE QUALITY</Text>
+          </View>
+          <IntakeQuality navigation = {this.props.navigation}/>
+        </ScrollView>
       </View>
     );
   }
@@ -38,7 +54,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',
-    // justifyContent: 'space-around',
+    justifyContent: 'space-between',
     marginBottom: 5
   },
   iconStyle: {
@@ -51,6 +67,24 @@ const styles = StyleSheet.create({
     color: 'black',
     fontFamily: 'Avenir',
     fontSize: 20,
-    marginLeft: 100,    
+    // marginLeft: 100,    
+  },
+  scrollContainer: {
+    flex:1,
+  },
+  labelComponent: {
+    backgroundColor: 'black',
+    height:35,
+    marginTop: 20,
+    justifyContent: 'center',
+    shadowColor: '#a9b6cc',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2
+},
+  labelTextComponent: {
+    color:'#fff',
+    fontWeight: 'bold',
+    fontSize:20,
+    marginLeft: 10,
   },
 });

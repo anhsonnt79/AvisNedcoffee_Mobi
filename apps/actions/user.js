@@ -1,5 +1,6 @@
 
 import { Platform, Alert } from 'react-native';
+import global from '../global';
 
 export const setUserName = (name) => ({
     type: 'SET_USER_NAME',
@@ -24,7 +25,7 @@ export const login = (username, password) => {
 
         form.append('login', username);
         form.append('password', password);
-        fetch('http://127.0.0.1:8069/auth/signin', {
+        fetch(global.URL + '/auth/signin', {
           method: 'POST',
           body: form
         })
