@@ -1,6 +1,6 @@
 module.exports = {
-    // URL: 'http://127.0.0.1:8069',
-    URL: 'http://avis.nedcoffee.vn',
+    URL: 'http://127.0.0.1:8069',
+    // URL: 'http://avis.nedcoffee.vn',
     // addProductToCart: null,
     // incrQuantity: null,
     // decrQuantity: null,

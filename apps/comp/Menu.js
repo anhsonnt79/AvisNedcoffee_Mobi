@@ -69,16 +69,16 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     profile: {
-        width: 60,
-        height: 60,
-        borderRadius: 30,
+        width: 90,
+        height: 90,
+        borderRadius: 45,
         marginVertical: 20
     },
     btnSignInStyle: {
         height: 30,
         backgroundColor: '#fff',
         borderRadius: 15,
-        width: 240,
+        width: 200,
         marginBottom: 5,
         justifyContent: 'center',
         paddingLeft: 10

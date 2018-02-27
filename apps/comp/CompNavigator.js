@@ -19,6 +19,8 @@ import StockZoneStack from './Stock/StockZoneStack';
 import SupplierHome from './Supplier/SupplierHome';
 
 import IntakeQuality from './Report/IntakeQuality';
+import IntakeQualitySupplier from './Report/IntakeQualitySupplier';
+import IntakeQtySupStack from './Report/IntakeQtySupStack';
 
 import { StackNavigator } from 'react-navigation';
 import icMenu from '../img/ic_menu.png';
@@ -98,6 +100,16 @@ export default StackNavigator({
     IntakeQuality: { screen: IntakeQuality,
         navigationOptions: {
             title: 'Intake Quality Home',
+        },
+    },
+    IntakeQualitySupplier: { screen: IntakeQualitySupplier,
+        navigationOptions: {
+            title: 'Intake Qty by Supplier',
+        },
+    },
+    IntakeQtySupStack: { screen: IntakeQtySupStack,
+        navigationOptions: {
+            title: 'Detail Quality',
         },
     },
 });

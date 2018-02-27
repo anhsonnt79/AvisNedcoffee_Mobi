@@ -83,10 +83,12 @@ export default class IntakeQuality extends React.Component {
           data={this.state.data}
           renderItem={({ item }) => (
             <ListItem 
-              title={`${item.supplier}`}
-              titleStyle={styles.titlestyle}
-              titleContainerStyle = {{ marginLeft: 10 }}
-              subtitle={<View style={styles.subtitleView}>
+                onPress={() => navigate('IntakeQualitySupplier',
+                {supplier_id: `${item.supplier_id}`, supplier: `${item.supplier}`})}
+                title={`${item.supplier}` + ' (' + `${item.total_row}` + ' row)'}
+                titleStyle={styles.titlestyle}
+                titleContainerStyle = {{ marginLeft: 10 }}
+                subtitle={<View style={styles.subtitleView}>
                 <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
                   <Text style={styles.menuText}>Balance Basis: </Text>
                   <Text style={styles.menuText}>{item.balance_basis.toLocaleString()} Kg</Text>
@@ -99,20 +101,6 @@ export default class IntakeQuality extends React.Component {
                   <Text style={styles.menuText}>SC18 + SC16: </Text>
                   <Text style={styles.menuText}>{item.screen.toLocaleString()}  %</Text>
                 </View>
-                {/* <View style={styles.buttonNgang}>
-                  <TouchableOpacity style={styles.buttonStyleLeft}
-                    onPress={() => navigate('StockProduct',
-                    {stockname: `${item.stockname}`, stock_id: `${item.stock_id}`})}
-                  >
-                    <Text style={{color: '#fff'}}>Group by Product</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.buttonStyleRight}
-                    onPress={() => this.props.navigation.navigate('StockZone',
-                    {stockname: `${item.stockname}`, stock_id: `${item.stock_id}`})}
-                  >
-                    <Text style={{color: '#fff'}}>Group by Zone</Text>
-                  </TouchableOpacity>
-                </View> */}
               </View>}            
               containerStyle={{ borderBottomWidth: 0, marginTop: 0 }}
             />
