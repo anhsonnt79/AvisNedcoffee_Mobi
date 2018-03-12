@@ -14,7 +14,7 @@ export default class IntakeQuality extends React.Component {
       data: [],
       error: null,
       refreshing: false, 
-      base_url: global.URL, //"http://127.0.0.1:8069",
+      base_url: global.URL,
     }
   }
 
@@ -37,12 +37,12 @@ export default class IntakeQuality extends React.Component {
         })
       .then(res => res.json())
       .then(res => {
-          this.setState({
-            data: res,
-            error: null,
-            loading: false,
-            refreshing: false,
-          });
+        this.setState({
+          data: res,
+          error: null,
+          loading: false,
+          refreshing: false,
+        });
       })
       .catch(error => {
         this.setState({ error, loading : false });

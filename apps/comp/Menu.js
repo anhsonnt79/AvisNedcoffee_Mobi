@@ -47,7 +47,7 @@ export default class Menu extends Component {
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('SupplierHome')}>
                             <Text style={btnTextSignIn}>SUPPLIER</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('IntakeQuality')}>
+                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('IntakeQualitySupplier',{supplier_id: ''})}>
                             <Text style={btnTextSignIn}>INTAKE QUALITY</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={btnSignInStyle}>
