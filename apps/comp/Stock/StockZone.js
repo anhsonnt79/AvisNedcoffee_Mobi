@@ -105,7 +105,7 @@ export default class StockZone extends React.Component {
     render() {
         const { navigate, state: { params } } = this.props.navigation;
         const { main, checkoutButton, checkoutTitle, wrapper,
-            productStyle, mainRight, productController,
+            productStyle, mainRight, productController, menuText,
             txtName, txtPrice, productImage, numberOfProduct,
             txtShowDetail, showDetailContainer, labelLeft, labelRight, txtQty } = styles;
         return (
@@ -141,6 +141,14 @@ export default class StockZone extends React.Component {
                                 <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
                                     <Text style={{ fontFamily: 'Avenir', color: 'black', fontSize: 14 }}>Bags Qty :</Text>
                                     <Text style={txtQty}>{rowData.bag_qty.toLocaleString()}     </Text>
+                                </View>
+                                <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                                    <Text style={{ fontFamily: 'Avenir', color: 'black', fontSize: 14 }}>Black + Broken: </Text>
+                                    <Text style={txtQty}>{rowData.bb.toLocaleString()}  %</Text>
+                                </View>
+                                <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                                    <Text style={{ fontFamily: 'Avenir', color: 'black', fontSize: 14 }}>SC18 + SC16: </Text>
+                                    <Text style={txtQty}>{rowData.screen.toLocaleString()}  %</Text>
                                 </View>
                             </TouchableOpacity>
                             </View>

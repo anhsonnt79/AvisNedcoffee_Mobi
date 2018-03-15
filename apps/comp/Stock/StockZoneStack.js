@@ -128,6 +128,14 @@ export default class StockZoneStack extends React.Component {
                                     <Text style={{ fontFamily: 'Avenir', color: 'black', fontSize: 14 }}>Bags Qty:</Text>
                                     <Text style={txtQty}>{rowData.bag_qty.toLocaleString()}     </Text>
                                 </View>
+                                <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                                    <Text style={{ fontFamily: 'Avenir', color: 'black', fontSize: 14 }}>Black + Broken: </Text>
+                                    <Text style={txtQty}>{rowData.bb.toLocaleString()}  %</Text>
+                                </View>
+                                <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                                    <Text style={{ fontFamily: 'Avenir', color: 'black', fontSize: 14 }}>SC18 + SC16: </Text>
+                                    <Text style={txtQty}>{rowData.screen.toLocaleString()}  %</Text>
+                                </View>
                             </View>
                         </View>
                     )}
