@@ -183,12 +183,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontFamily: 'Avenir'
     },
-    menuText: {
-        paddingLeft: 10,
-        fontWeight: 'bold',
-        color: 'black',
-        fontSize: 16
-    },
     productStyle: {
         flexDirection: 'row',
         margin: 5,
