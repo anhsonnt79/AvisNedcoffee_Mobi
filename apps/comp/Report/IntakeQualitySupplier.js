@@ -73,34 +73,33 @@ export default class IntakeQualitySupplier extends Component {
           }
         );
     };
-    _onEndReached = () => {
-        // this.setState({ refreshing: true, loading: true});
-        var form = new FormData();
-        form.append('pageno', this.state.pageno + 1);
-        form.append('supplier_id', this.props.navigation.state.params.supplier_id);
-        form.append('from_date', this.state.from_date);
-        form.append('to_date', this.state.to_date);        
+    _onFilter = () => {
+        this.setState({ pageno: 1, refreshing: true, loading: true},
+            () => {
+                var form = new FormData();
+                form.append('pageno', this.state.pageno);
+                form.append('supplier_id', this.props.navigation.state.params.supplier_id);
+                form.append('from_date', this.state.from_date);
+                form.append('to_date', this.state.to_date);        
 
-        fetch(global.URL + '/stock/intake/suplier', {
-            method: 'POST',
-            body: form
-            })
-        .then((response)=>response.json())
-        .then((responseJson)=>{
-            if(responseJson.length != 0){
-                mang=mang.concat(responseJson);
-                this.setState({
-                    mang: mang, pageno: pageno + 1,
-                    error: null,
-                    loading: false,
-                    refreshing: false,
-                });
+                fetch(global.URL + '/stock/intake/suplier', {
+                    method: 'POST',
+                    body: form
+                })
+                .then((response)=>response.json())
+                .then((responseJson) => {
+                    this.setState({
+                        data: responseJson,
+                        error: null,
+                        loading: false,
+                        refreshing: false,
+                    });
+                })
+                .catch(error => {
+                    this.setState({ error, loading : false });
+                })
             }
-        })
-        .catch(error => {
-            this.setState({ error, loading : false });
-        })
-    }
+        )}
     /**
      * Textbox click listener
      */
@@ -171,7 +170,7 @@ export default class IntakeQualitySupplier extends Component {
                         onDateChange={(date) => {this.setState({to_date: date})}}
                     />
                     <Button
-                        onPress={this.handleRefresh.bind(this)}
+                        onPress={this._onFilter}
                         title="Filter"
                         color="#841584"
                         backgroundColor="gray"
