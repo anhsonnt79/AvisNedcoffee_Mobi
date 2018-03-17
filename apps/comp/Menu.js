@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import profileIcon from '../img/profile.png';
 import { StackNavigator } from 'react-navigation';
+// import Panel from './Panel';
 
 export default class Menu extends Component {
     // constructor(props) {
@@ -30,9 +31,9 @@ export default class Menu extends Component {
                             <Text style={btnTextSignIn}>DASHBOARD</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('StockHome')}>
-                            <Text style={btnTextSignIn}>STOCK STACK</Text>
+                            <Text style={btnTextSignIn}>INVENTORY</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('PurchaseHome')}>
+                        {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('PurchaseHome')}>
                             <Text style={btnTextSignIn}>PURCHASE</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('QualityHome')}>
@@ -46,13 +47,13 @@ export default class Menu extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('SupplierHome')}>
                             <Text style={btnTextSignIn}>SUPPLIER</Text>
+                        </TouchableOpacity> */}
+                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('IntakeQuality')}>
+                            <Text style={btnTextSignIn}>QUALITY INTAKE</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('IntakeQualitySupplier',{supplier_id: ''})}>
-                            <Text style={btnTextSignIn}>INTAKE QUALITY</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle}>
+                        {/* <TouchableOpacity style={btnSignInStyle}>
                             <Text style={btnTextSignIn}>SIGN OUT</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                     <View />
                 </View>
@@ -98,3 +99,31 @@ const styles = StyleSheet.create({
         fontSize: 15
     }
 });
+
+
+// export default class Menu extends Component {
+//     render() {
+//       return (  //Step 2
+//         <ScrollView style={styles.container}>
+//           <Panel title="A Panel with short content text">
+//             <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+//           </Panel>
+//           <Panel title="A Panel with long content text">
+//             <Text>Lorem ipsum...</Text>
+//           </Panel>
+//           <Panel title="Another Panel">
+//             <Text>Lorem ipsum dolor sit amet...</Text>
+//           </Panel>
+//         </ScrollView>
+//       );
+//     }
+//   }
+  
+// const styles = StyleSheet.create({
+//     container: {
+//       flex: 1,
+//       backgroundColor: '#f4f7f9',
+//       paddingTop: 30
+//     },
+    
+//   });
