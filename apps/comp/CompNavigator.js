@@ -18,9 +18,12 @@ import StockZoneStack from './Stock/StockZoneStack';
 
 import SupplierHome from './Supplier/SupplierHome';
 
+import TabIntakeNpe from './Report/TabIntakeNpe';
 import IntakeQuality from './Report/IntakeQuality';
 import IntakeQualitySupplier from './Report/IntakeQualitySupplier';
 import IntakeQtySupStack from './Report/IntakeQtySupStack';
+import NPEUnfixed from './Report/NPEUnfixed';
+import NPEUnfixDetail from './Report/NPEUnfixDetail';
 
 import { StackNavigator } from 'react-navigation';
 import icMenu from '../img/ic_menu.png';
@@ -42,6 +45,7 @@ export default StackNavigator({
             title: 'Dashboard',
         },
     },
+    TabIntakeNpe: { screen: TabIntakeNpe},
     PContractTab: { screen: PContractTab},
 
     PurchaseHome: { screen: PurchaseHome,
@@ -110,6 +114,16 @@ export default StackNavigator({
     IntakeQtySupStack: { screen: IntakeQtySupStack,
         navigationOptions: {
             title: 'Detail Quality',
+        },
+    },
+    NPEUnfixed: { screen: NPEUnfixed,
+        navigationOptions: {
+            title: 'NPEUnfixed Consignment',
+        },
+    },
+    NPEUnfixDetail: { screen: NPEUnfixDetail,
+        navigationOptions: {
+            title: 'NPEUnfixed Consignment Detail',
         },
     },
 });

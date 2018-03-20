@@ -2,7 +2,19 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import profileIcon from '../img/profile.png';
 import { StackNavigator } from 'react-navigation';
-// import Panel from './Panel';
+import Accordion from './ExpandMenu/Accordion';
+
+// const SECTIONS = [
+//   {
+//     title: 'Quality',
+//     content: 'NPE Unfix',
+//     content1: 'Intake quality'
+//   },
+//   {
+//     title: 'Second',
+//     content: 'Lorem ipsum...'
+//   }
+// ];
 
 export default class Menu extends Component {
     // constructor(props) {
@@ -14,6 +26,32 @@ export default class Menu extends Component {
     //     const { navigate } = this.props.navigation;
     //     navigate('PurchaseHome');
     // }
+    // _navigateControl(formname) {
+    //     const { navigate } = this.props.navigation;
+    //     navigate(formname);
+    // }
+
+    // _renderHeader(section) {
+    //     return (
+    //       <View style={styles.btnSignInStyle}>
+    //         <Text style={styles.btnTextSignIn}>{section.title}</Text>
+    //       </View>
+    //     );
+    //   }
+    
+    // _renderContent(section) {
+    //     const { navigate } = this.props.navigation;
+    //     return (
+    //         <View style={styles.content}>
+    //             <TouchableOpacity style={styles.btnSignInStyle} onPress={() => navigate('Main')}>
+    //                 <Text style={styles.btnTextSignIn}>DASHBOARD</Text>
+    //             </TouchableOpacity>
+    //             <TouchableOpacity style={styles.btnSignInStyle} onPress={() => navigate('StockHome')}>
+    //                 <Text style={styles.btnTextSignIn}>INVENTORY</Text>
+    //             </TouchableOpacity>
+    //         </View>
+    //     );
+    //   }
     render() {
         const { 
             container, profile,
@@ -33,10 +71,10 @@ export default class Menu extends Component {
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('StockHome')}>
                             <Text style={btnTextSignIn}>INVENTORY</Text>
                         </TouchableOpacity>
-                        {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('PurchaseHome')}>
-                            <Text style={btnTextSignIn}>PURCHASE</Text>
+                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('TabIntakeNpe')}>
+                            <Text style={btnTextSignIn}>QUALITY</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('QualityHome')}>
+                        {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('QualityHome')}>
                             <Text style={btnTextSignIn}>QUALITY CONTROL</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('ReceiveHome')}>
@@ -48,13 +86,18 @@ export default class Menu extends Component {
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('SupplierHome')}>
                             <Text style={btnTextSignIn}>SUPPLIER</Text>
                         </TouchableOpacity> */}
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('IntakeQuality')}>
+                        {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('IntakeQuality')}>
                             <Text style={btnTextSignIn}>QUALITY INTAKE</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                         {/* <TouchableOpacity style={btnSignInStyle}>
                             <Text style={btnTextSignIn}>SIGN OUT</Text>
                         </TouchableOpacity> */}
-                    </View>
+                        {/* <Accordion
+                            sections={SECTIONS}
+                            renderHeader={this._renderHeader}
+                            renderContent={this._renderContent}
+                        /> */}
+                        </View>
                     <View />
                 </View>
             </View>

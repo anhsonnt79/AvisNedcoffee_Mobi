@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, FlatList, ActivityIndicator, View, Image, TouchableOpacity, ListView, Dimensions,
         Button, ScrollView  } from 'react-native';
-import DatePicker from 'react-native-datepicker';
+// import DatePicker from 'react-native-datepicker';
 import { List, ListItem, SearchBar, Avatar, colors } from "react-native-elements";
 import { StackNavigator } from 'react-navigation';
 import global from '../../global';
@@ -11,19 +11,19 @@ const { height } = Dimensions.get('window');
 export default class IntakeQuality extends React.Component {
   constructor(props){
     super(props);
-    var from_day = new Date().getDate()-1;
-    var to_day = new Date().getDate();
-    var month = new Date().getMonth() + 1;
-    var year = new Date().getFullYear();
+    // var from_day = new Date().getDate()-1;
+    // var to_day = new Date().getDate();
+    // var month = new Date().getMonth() + 1;
+    // var year = new Date().getFullYear();
     this.state={
-        pageno: 1, data:[], seed: 1,
+        pageno: 1, data:[],
         loading: false,             
         refreshing: false,
         error: null,    
-        from_date: year + '/' + month + '/' + from_day,
-        to_date: year + '/' + month + '/' + to_day,
-        DateText: '',
-        DateHolder: null,  
+        // from_date: year + '/' + month + '/' + from_day,
+        // to_date: year + '/' + month + '/' + to_day,
+        // DateText: '',
+        // DateHolder: null,  
     }
   }
   componentDidMount(){
@@ -36,10 +36,8 @@ export default class IntakeQuality extends React.Component {
     var form = new FormData();
     form.append('pageno', this.state.pageno);
     // form.append('supplier_id', this.props.navigation.state.params.supplier_id);
-    form.append('from_date', this.state.from_date); //
-    form.append('to_date', this.state.to_date); //        
 
-    fetch(global.URL + '/stock/intake', {
+    fetch(global.URL + '/npe/unfixed', {
       method: 'POST',
       body: form
       })
@@ -74,17 +72,7 @@ export default class IntakeQuality extends React.Component {
       }
     );
   };
-  _onFilter = () => {
-    this.setState({ pageno: this.state.pageno});
-    this.setState(
-      {
-        pageno: 1, refreshing: true, loading: true //, from_date: '2018/02/01'
-      },
-      () => {
-        this.fetchDataFromApi();
-      }
-    );
-  }
+
   renderFooter = () => {
     if (!this.state.loading) return null;
     return (
@@ -104,10 +92,10 @@ export default class IntakeQuality extends React.Component {
       <View
         style={{
           height: 1,
-          width: "90%",
+          width: "95%",
           backgroundColor: "#CED0CE",
           marginLeft: "10%",
-          marginTop: "3%"
+          // marginTop: "3%"
         }}
       />
     );
@@ -117,52 +105,28 @@ export default class IntakeQuality extends React.Component {
     const { navigate } = this.props.navigation;    
     return (
       <View style={{ flex:1, backgroundColor: '#ffffff'}}>
-        <ScrollView style={{flex:1}} >
-          <View style={{height: 20, justifyContent: 'space-between', flexDirection: 'row' }}>
-            <DatePicker
-                style={{width: 150}}
-                date={this.state.from_date}
-                mode="date"
-                placeholder="select date"
-                format="YYYY/MM/DD"
-                confirmBtnText="Confirm"
-                cancelBtnText="Cancel"
-                iconSource={require('../../img/google_calendar.png')}
-                onDateChange={(date) => {this.setState({from_date: date})}}
-            />
-            <DatePicker
-                style={{width: 150}}
-                date={this.state.to_date}
-                mode="date"
-                placeholder="select date"
-                format="YYYY/MM/DD"
-                confirmBtnText="Confirm"
-                cancelBtnText="Cancel"
-                iconSource={require('../../img/google_calendar.png')}
-                onDateChange={(date) => {this.setState({to_date: date})}}
-            />
-            <Button
-                onPress={this._onFilter}
-                title="Filter"
-                color="red"
-                // accessibilityLabel="Learn more about this purple button"
-            />
-          </View>
         <List containerStyle={{ borderTopWidth: 0, borderBottomWidth: 0 }}>
           <FlatList
             data={this.state.data}
             renderItem={({ item }) => (
               <ListItem 
-                  onPress={() => navigate('IntakeQualitySupplier',
-                  {supplier_id: `${item.supplier_id}`, supplier: `${item.supplier}`,
-                  fromdate: this.state.from_date, todate: this.state.to_date})}
-                  title={`${item.supplier}` + ' (' + `${item.total_row}` + ' row)'}
+                  onPress={() => navigate('NPEUnfixDetail',
+                  {partner_id: `${item.partner_ids}`, partner: `${item.partner}`})}
+                  title={`${item.partner}`}
                   titleStyle={styles.titlestyle}
                   titleContainerStyle = {{ marginLeft: 10 }}
                   subtitle={<View style={styles.subtitleView}>
                   <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-                    <Text style={styles.menuText}>Balance Basis: </Text>
-                    <Text style={styles.menuText}>{item.balance_basis.toLocaleString()} Kg</Text>
+                    <Text style={styles.menuText}>Contract Qty.: </Text>
+                    <Text style={styles.menuText}>{item.qty_contract.toLocaleString()} Kg</Text>
+                  </View>
+                  <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                    <Text style={styles.menuText}>Received Qty.: </Text>
+                    <Text style={styles.menuText}>{item.qty_received.toLocaleString()} Kg</Text>
+                  </View>
+                  <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                    <Text style={styles.menuText}>Unfixed Qty.: </Text>
+                    <Text style={styles.menuText}>{item.unfixed.toLocaleString()} Kg</Text>
                   </View>
                   <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
                     <Text style={styles.menuText}>Black + Broken: </Text>
@@ -187,7 +151,6 @@ export default class IntakeQuality extends React.Component {
               onEndReachedThreshold={-0.2}
           />
         </List>
-        </ScrollView>
       </View>
     );
   }
@@ -210,7 +173,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     fontWeight: 'bold',
     color: 'black',
-    fontSize: 16
+    fontSize: 12
   },
   locText: {
     paddingLeft: 12,
@@ -223,7 +186,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   titlestyle: {
-    fontSize: 18, fontWeight: 'bold', color: 'red',
+    fontSize: 16, fontWeight: 'bold', color: '#1F69F6',
   },
   buttonNgang: {
     flexDirection: 'row',

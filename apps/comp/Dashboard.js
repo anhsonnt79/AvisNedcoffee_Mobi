@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity, Dimensions, Image, StyleSheet, ScrollView
 import icMenu from '../img/ic_menu.png';
 import StockHome from './Stock/StockHome';
 import IntakeQuality from './Report/IntakeQuality';
+import NPEUnfixed from './Report/NPEUnfixed';
 import { StackNavigator } from 'react-navigation';
 const { height } = Dimensions.get('window');
 // import StockProduct from './Stock/StockProduct';
@@ -38,6 +39,10 @@ export default class Dashboard extends React.Component {
             <Text style={labelTextComponent}>INTAKE QUALITY</Text>
           </View>
           <IntakeQuality navigation = {this.props.navigation}/>
+          <View style={labelComponent}>
+            <Text style={labelTextComponent}>Unfixed Consignment</Text>
+          </View>
+          <NPEUnfixed navigation = {this.props.navigation}/>
         </ScrollView>
       </View>
     );
