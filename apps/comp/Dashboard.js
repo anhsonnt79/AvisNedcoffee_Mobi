@@ -32,17 +32,17 @@ export default class Dashboard extends React.Component {
         </View>
         <ScrollView style={scrollContainer} >
           <View style={labelComponent}>
-            <Text style={labelTextComponent}>STOCK STACK</Text>
+            <Text style={labelTextComponent}>INVENTORY</Text>
           </View>
-            <StockHome navigation = {this.props.navigation}/>
-          <View style={labelComponent}>
+          <StockHome navigation = {this.props.navigation}/>
+          {/* <View style={labelComponent}>
             <Text style={labelTextComponent}>INTAKE QUALITY</Text>
           </View>
           <IntakeQuality navigation = {this.props.navigation}/>
           <View style={labelComponent}>
             <Text style={labelTextComponent}>Unfixed Consignment</Text>
           </View>
-          <NPEUnfixed navigation = {this.props.navigation}/>
+          <NPEUnfixed navigation = {this.props.navigation}/> */}
         </ScrollView>
       </View>
     );
