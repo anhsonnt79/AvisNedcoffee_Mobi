@@ -6,7 +6,7 @@ import {
   View, Image
 } from 'react-native';
 import IntakeQuality from './IntakeQuality';
-import NPEUnfixed from './NPEUnfixed';
+import FAQDeviation from './FAQDeviation';
 
 // import TabNavigator from 'react-native-tab-navigator';
 import TabNavigator from '../TabNaviga/TabNavigator';
@@ -21,32 +21,32 @@ function px2dp(px) {
   return px *  deviceW / basePx
 }
 
-export default class TabIntakeNpe extends Component {
+export default class TabInbound extends Component {
   state= {
-    selectedTab: 'intakeQuality'
+    selectedTab: 'faqDeviation'
   };
 
   render() {
     return (
       <TabNavigator style={styles.container}>
         <TabNavigator.Item
+          selected={this.state.selectedTab === 'faqDeviation'}
+          title="FAQ Trans. Deviation" //Unfixed Consignment
+          selectedTitleStyle={{color: "#3496f0"}}
+          // renderIcon={() => <Icon name="user" size={px2dp(22)} color="#666"/>}
+          // renderSelectedIcon={() => <Icon name="user" size={px2dp(22)} color="#3496f0"/>}
+          onPress={() => this.setState({selectedTab: 'faqDeviation'})}>
+          <FAQDeviation navigation={this.props.navigation}/>
+        </TabNavigator.Item>
+        <TabNavigator.Item
           selected={this.state.selectedTab === 'intakeQuality'}
-          title="Intake"
+          title="Intake Quality"
           selectedTitleStyle={{color: "#3496f0"}}
           // renderIcon={() => Image source={require('../img/Home.png')} style={[styles.icon, { tintColor: tintColor }]} />}
           // renderSelectedIcon={() => Image source={require('../img/HomeSelect.png')} style={[styles.icon, { tintColor: tintColor }]} />}
         //   badgeText="1"
           onPress={() => this.setState({selectedTab: 'intakeQuality'})}>
           <IntakeQuality navigation={this.props.navigation}/>
-        </TabNavigator.Item>
-        <TabNavigator.Item
-          selected={this.state.selectedTab === 'nPEUnfixed'}
-          title="Unfixed Consignment"
-          selectedTitleStyle={{color: "#3496f0"}}
-          // renderIcon={() => <Icon name="user" size={px2dp(22)} color="#666"/>}
-          // renderSelectedIcon={() => <Icon name="user" size={px2dp(22)} color="#3496f0"/>}
-          onPress={() => this.setState({selectedTab: 'nPEUnfixed'})}>
-          <NPEUnfixed navigation={this.props.navigation}/>
         </TabNavigator.Item>
       </TabNavigator>
     );

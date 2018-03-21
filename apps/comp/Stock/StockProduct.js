@@ -143,8 +143,12 @@ export default class StockProduct extends React.Component {
                                     <Text style={txtQty}>{rowData.bb.toLocaleString()}  %</Text>
                                 </View>
                                 <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-                                    <Text style={{ fontFamily: 'Avenir', color: 'black', fontSize: 14 }}>SC18 + SC16: </Text>
-                                    <Text style={txtQty}>{rowData.screen.toLocaleString()}  %</Text>
+                                    <Text style={{ fontFamily: 'Avenir', color: 'black', fontSize: 14 }}>MC: </Text>
+                                    <Text style={txtQty}>{rowData.mc.toLocaleString()}  %</Text>
+                                </View>
+                                <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                                    <Text style={{ fontFamily: 'Avenir', color: 'black', fontSize: 14 }}>FM: </Text>
+                                    <Text style={txtQty}>{rowData.fm.toLocaleString()}  %</Text>
                                 </View>
                             </TouchableOpacity>
                             </View>

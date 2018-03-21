@@ -18,12 +18,18 @@ import StockZoneStack from './Stock/StockZoneStack';
 
 import SupplierHome from './Supplier/SupplierHome';
 
-import TabIntakeNpe from './Report/TabIntakeNpe';
+import TabInbound from './Report/TabInbound';
+import FAQDeviation from './Report/FAQDeviation';
 import IntakeQuality from './Report/IntakeQuality';
 import IntakeQualitySupplier from './Report/IntakeQualitySupplier';
 import IntakeQtySupStack from './Report/IntakeQtySupStack';
+
 import NPEUnfixed from './Report/NPEUnfixed';
 import NPEUnfixDetail from './Report/NPEUnfixDetail';
+
+import TabOutbound from './Report/TabOutbound';
+import FOBDeviation from './Report/FOBDeviation';
+import FOBFranchise from './Report/FOBFranchise';
 
 import { StackNavigator } from 'react-navigation';
 import icMenu from '../img/ic_menu.png';
@@ -45,7 +51,6 @@ export default StackNavigator({
             title: 'Dashboard',
         },
     },
-    TabIntakeNpe: { screen: TabIntakeNpe},
     PContractTab: { screen: PContractTab},
 
     PurchaseHome: { screen: PurchaseHome,
@@ -101,6 +106,8 @@ export default StackNavigator({
             title: 'Supplier Home',
         },
     },
+
+    TabInbound: { screen: TabInbound},
     IntakeQuality: { screen: IntakeQuality,
         navigationOptions: {
             title: 'Intake Quality Home',
@@ -124,6 +131,23 @@ export default StackNavigator({
     NPEUnfixDetail: { screen: NPEUnfixDetail,
         navigationOptions: {
             title: 'NPEUnfixed Consignment Detail',
+        },
+    },
+    FAQDeviation: { screen: FAQDeviation,
+        navigationOptions: {
+            title: 'FAQ (FOT-Ned) deviation',
+        },
+    },
+
+    TabOutbound: { screen: TabOutbound},
+    FOBDeviation: { screen: FOBDeviation,
+        navigationOptions: {
+            title: 'FOB deviation',
+        },
+    },
+    FOBFranchise: { screen: FOBFranchise,
+        navigationOptions: {
+            title: 'FOB Weight Franchise',
         },
     },
 });

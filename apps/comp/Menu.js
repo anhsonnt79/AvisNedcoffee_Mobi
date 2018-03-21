@@ -71,16 +71,16 @@ export default class Menu extends Component {
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('StockHome')}>
                             <Text style={btnTextSignIn}>INVENTORY</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('TabIntakeNpe')}>
-                            <Text style={btnTextSignIn}>QUALITY</Text>
+                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('TabInbound')}>
+                            <Text style={btnTextSignIn}>INBOUND</Text>
                         </TouchableOpacity>
-                        {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('QualityHome')}>
-                            <Text style={btnTextSignIn}>QUALITY CONTROL</Text>
+                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('TabOutbound')}>
+                            <Text style={btnTextSignIn}>OUTBOUND</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('ReceiveHome')}>
-                            <Text style={btnTextSignIn}>RECEIVE</Text>
+                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('NPEUnfixed')}>
+                            <Text style={btnTextSignIn}>CONSIGNMENT</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('SaleHome')}>
+                        {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('SaleHome')}>
                             <Text style={btnTextSignIn}>SALES</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('SupplierHome')}>

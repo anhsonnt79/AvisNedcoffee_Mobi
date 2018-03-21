@@ -116,10 +116,10 @@ export default class IntakeQuality extends React.Component {
                   titleStyle={styles.titlestyle}
                   titleContainerStyle = {{ marginLeft: 10 }}
                   subtitle={<View style={styles.subtitleView}>
-                  <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                  {/* <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
                     <Text style={styles.menuText}>Contract Qty.: </Text>
                     <Text style={styles.menuText}>{item.qty_contract.toLocaleString()} Kg</Text>
-                  </View>
+                  </View> */}
                   <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
                     <Text style={styles.menuText}>Received Qty.: </Text>
                     <Text style={styles.menuText}>{item.qty_received.toLocaleString()} Kg</Text>
