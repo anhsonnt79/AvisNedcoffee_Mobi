@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import profileIcon from '../img/profile.png';
 import { StackNavigator } from 'react-navigation';
-import Accordion from './ExpandMenu/Accordion';
 
 // const SECTIONS = [
 //   {
@@ -80,10 +79,10 @@ export default class Menu extends Component {
                         <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('NPEUnfixed')}>
                             <Text style={btnTextSignIn}>CONSIGNMENT</Text>
                         </TouchableOpacity>
-                        {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('SaleHome')}>
-                            <Text style={btnTextSignIn}>SALES</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('SupplierHome')}>
+                        {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('NPE')}>
+                            <Text style={btnTextSignIn}>Test Panel</Text>
+                        </TouchableOpacity> */}
+                        {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('SupplierHome')}>
                             <Text style={btnTextSignIn}>SUPPLIER</Text>
                         </TouchableOpacity> */}
                         {/* <TouchableOpacity style={btnSignInStyle} onPress={() => navigate('IntakeQuality')}>

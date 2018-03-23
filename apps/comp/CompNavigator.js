@@ -24,6 +24,7 @@ import IntakeQuality from './Report/IntakeQuality';
 import IntakeQualitySupplier from './Report/IntakeQualitySupplier';
 import IntakeQtySupStack from './Report/IntakeQtySupStack';
 
+import NPE from './Report/NPE_test_Panel';
 import NPEUnfixed from './Report/NPEUnfixed';
 import NPEUnfixDetail from './Report/NPEUnfixDetail';
 
@@ -133,6 +134,12 @@ export default StackNavigator({
             title: 'NPEUnfixed Consignment Detail',
         },
     },
+    NPE: { screen: NPE,
+        navigationOptions: {
+            title: 'NPE Unfixed Consignment',
+        },
+    },
+
     FAQDeviation: { screen: FAQDeviation,
         navigationOptions: {
             title: 'FAQ (FOT-Ned) deviation',
